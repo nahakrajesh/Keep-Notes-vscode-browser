@@ -1,0 +1,47 @@
+{
+  "name": "notepad-keeper",
+  "displayName": "Notepad Keeper",
+  "description": "A beautiful Google Keep-style notepad accessible from any workspace. Save notes from Chrome or VS Code.",
+  "version": "1.0.0",
+  "publisher": "rentomojo",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "notepad-keeper",
+          "title": "Notepad Keeper",
+          "icon": "media/notepad.svg"
+        }
+      ]
+    },
+    "views": {
+      "notepad-keeper": [
+        {
+          "type": "webview",
+          "id": "notepadKeeper.sidebar",
+          "name": "Notes"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "notepadKeeper.addNote",
+        "title": "Notepad Keeper: New Note"
+      },
+      {
+        "command": "notepadKeeper.refresh",
+        "title": "Notepad Keeper: Refresh Notes"
+      }
+    ]
+  }
+}

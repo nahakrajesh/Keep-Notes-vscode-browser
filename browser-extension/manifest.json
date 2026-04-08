@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Notepad Keeper",
+  "description": "Quick-capture notes to your VS Code Notepad Keeper",
+  "version": "1.0.0",
+  "permissions": [],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Notepad Keeper"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

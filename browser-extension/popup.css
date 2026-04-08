@@ -1,0 +1,363 @@
+/* ── Reset & Base ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  color: #1f1f1f;
+  background: #ffffff;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.header-title {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fbbf24;
+  transition: background 0.3s;
+}
+
+.status-dot.connected {
+  background: #34d399;
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+}
+
+.status-dot.disconnected {
+  background: #f87171;
+}
+
+/* ── Form ── */
+.form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1f1f1f;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+  background: #fff;
+}
+
+.form input {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 250px;
+  line-height: 1.6;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* ── Color Picker ── */
+.color-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.color-picker {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.color-dot:hover {
+  transform: scale(1.2);
+}
+
+.color-dot.selected {
+  border-color: #667eea;
+  transform: scale(1.2);
+}
+
+.color-dot.selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #667eea;
+}
+
+.color-dot[data-color="default"] { background: #f3f4f6; border-color: #d1d5db; }
+.color-dot[data-color="default"].selected { border-color: #667eea; }
+.color-dot[data-color="coral"] { background: #f28b82; }
+.color-dot[data-color="peach"] { background: #fbbc04; }
+.color-dot[data-color="sand"] { background: #fff475; }
+.color-dot[data-color="mint"] { background: #ccff90; }
+.color-dot[data-color="sage"] { background: #a7ffeb; }
+.color-dot[data-color="fog"] { background: #cbf0f8; }
+.color-dot[data-color="storm"] { background: #aecbfa; }
+.color-dot[data-color="dusk"] { background: #d7aefb; }
+.color-dot[data-color="blossom"] { background: #fdcfe8; }
+.color-dot[data-color="clay"] { background: #e6c9a8; }
+.color-dot[data-color="chalk"] { background: #e8eaed; }
+
+/* ── Pin Toggle ── */
+.pin-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #6b7280;
+  padding: 6px 0;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+.pin-toggle:hover {
+  color: #4b5563;
+}
+
+.pin-toggle input {
+  display: none;
+}
+
+.pin-toggle input:checked ~ span {
+  color: #667eea;
+  font-weight: 500;
+}
+
+.pin-toggle input:checked ~ svg {
+  color: #667eea;
+}
+
+/* ── Actions ── */
+.actions {
+  padding: 0 16px 12px;
+}
+
+.btn-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.btn-save:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+.btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: -60px;
+  left: 16px;
+  right: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  transition: bottom 0.3s ease;
+  z-index: 100;
+}
+
+.toast.show {
+  bottom: 16px;
+}
+
+.toast.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.toast.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ── Recent Notes ── */
+.recent {
+  border-top: 1px solid #f3f4f6;
+  padding: 12px 16px 16px;
+}
+
+.recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.recent-header span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-text:hover {
+  text-decoration: underline;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recent-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #f3f4f6;
+  transition: background 0.15s;
+}
+
+.recent-note:hover {
+  background: #f3f4f6;
+}
+
+.recent-note .color-bar {
+  width: 4px;
+  height: 28px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.recent-note .note-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-note .note-title {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-note .note-date {
+  font-size: 10px;
+  color: #9ca3af;
+  margin-top: 1px;
+}
