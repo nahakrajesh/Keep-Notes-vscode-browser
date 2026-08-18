@@ -22,7 +22,7 @@ vsce package --allow-missing-repository
 
 Then in VS Code: `Cmd+Shift+P` → "Extensions: Install from VSIX..." → select `notepad-keeper-1.0.0.vsix`
 
-Reload VS Code. Notepad icon appears in the left sidebar.
+Reload VS Code. Notepad icon appears in the left sidebaras.
 
 ### 2. Install Chrome Extension
 
